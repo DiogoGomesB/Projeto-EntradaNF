@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard NF</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.6/dist/chart.umd.min.js" defer></script>
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <h1>Dashboard de Notas Fiscais</h1>
+        <p>Explore suas informações de NF de forma interativa.</p>
+      </div>
+      <label class="file-input">
+        <input type="file" id="fileInput" accept=".xlsx,.xls" />
+        <span>Importar outro arquivo</span>
+      </label>
+    </header>
+
+    <main>
+      <section class="status" id="status"></section>
+
+      <section class="summary" aria-label="Indicadores principais">
+        <article class="summary-card">
+          <h2>Total</h2>
+          <p id="summaryTotal">–</p>
+        </article>
+        <article class="summary-card">
+          <h2>Quantidade</h2>
+          <p id="summaryCount">–</p>
+        </article>
+        <article class="summary-card">
+          <h2>Média</h2>
+          <p id="summaryAverage">–</p>
+        </article>
+      </section>
+
+      <section class="controls" aria-label="Configurações de análise">
+        <div class="control-row">
+          <div class="control-item">
+            <label for="categorySelect">Agrupar por</label>
+            <select id="categorySelect"></select>
+          </div>
+          <div class="control-item">
+            <label for="valueSelect">Métrica</label>
+            <select id="valueSelect"></select>
+          </div>
+          <div class="control-item">
+            <label for="categoryFilter">Filtrar categoria</label>
+            <input
+              type="search"
+              id="categoryFilter"
+              placeholder="Ex.: Cliente ABC"
+            />
+          </div>
+        </div>
+        <div class="control-row control-row--dates">
+          <div class="control-item">
+            <label for="startDate">Data inicial</label>
+            <input type="date" id="startDate" />
+          </div>
+          <div class="control-item">
+            <label for="endDate">Data final</label>
+            <input type="date" id="endDate" />
+          </div>
+        </div>
+      </section>
+
+      <section class="charts" aria-label="Visualizações interativas">
+        <article>
+          <header>
+            <h2>Distribuição por categoria</h2>
+          </header>
+          <canvas id="categoryChart" height="280"></canvas>
+        </article>
+        <article>
+          <header>
+            <h2>Séries por período</h2>
+          </header>
+          <canvas id="timelineChart" height="280"></canvas>
+        </article>
+      </section>
+
+      <section class="table-section" aria-label="Tabela detalhada">
+        <header>
+          <div>
+            <h2>Detalhes das notas</h2>
+            <p id="tableCount">0 registros</p>
+          </div>
+          <button id="downloadCsv" type="button">Exportar CSV</button>
+        </header>
+        <div class="table-wrapper">
+          <table id="dataTable">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <small>
+        Caso o arquivo padrão não carregue, utilize o botão "Importar outro
+        arquivo" e selecione seu Excel.
+      </small>
+    </footer>
+  </body>
+</html>

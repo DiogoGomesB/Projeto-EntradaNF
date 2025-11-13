@@ -1,0 +1,272 @@
+:root {
+  color-scheme: light dark;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  --bg: #0f172a;
+  --bg-surface: rgba(15, 23, 42, 0.75);
+  --card: rgba(30, 41, 59, 0.75);
+  --text: #f8fafc;
+  --muted: #cbd5f5;
+  --accent: #38bdf8;
+  --accent-strong: #0ea5e9;
+  --border: rgba(148, 163, 184, 0.4);
+  --shadow: 0 20px 35px -18px rgba(14, 165, 233, 0.55);
+  background: radial-gradient(circle at 20% 20%, #1e40af 0, #020617 45%),
+    radial-gradient(circle at 80% 0, rgba(14, 165, 233, 0.5) 0, #020617 50%),
+    #020617;
+  color: var(--text);
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  padding: 0 0 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+main {
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.app-header {
+  padding: 2.5rem clamp(1.5rem, 4vw, 3rem) 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: clamp(1.8rem, 2.2vw, 2.4rem);
+}
+
+.app-header p {
+  margin: 0.4rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.file-input {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.8rem 1.4rem;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #020617;
+  border-radius: 999px;
+  font-weight: 600;
+  box-shadow: var(--shadow);
+}
+
+.file-input input {
+  display: none;
+}
+
+.status {
+  min-height: 2rem;
+  padding: 0 1.5rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.summary {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.summary-card {
+  padding: 1.5rem;
+  border-radius: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 0.8rem;
+}
+
+.summary-card h2 {
+  margin: 0;
+  font-weight: 500;
+  color: var(--muted);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.summary-card p {
+  margin: 0;
+  font-size: clamp(1.5rem, 2vw, 1.9rem);
+  font-weight: 600;
+}
+
+.controls {
+  padding: 1.5rem;
+  border-radius: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.controls .control-group-inline {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.control-item {
+  display: grid;
+  gap: 0.5rem;
+}
+
+
+.controls .control-row {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-column: 1 / -1;
+}
+
+.controls .control-row--dates {
+  grid-template-columns: repeat(auto-fit, minmax(160px, 200px));
+  max-width: 440px;
+  margin: 0;
+  justify-self: start;
+  justify-content: flex-start;
+}
+
+.control-item label {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.control-item select,
+.control-item input {
+  padding: 0.65rem 0.75rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: rgba(15, 23, 42, 0.55);
+  color: var(--text);
+  font: inherit;
+}
+
+.charts {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.charts article {
+  padding: 1.5rem 1.3rem;
+  border-radius: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.charts h2 {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+}
+
+.table-section {
+  padding: 1.5rem;
+  border-radius: 20px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 1rem;
+}
+
+.table-section header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.table-section h2 {
+  margin: 0;
+}
+
+.table-section p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.table-section button {
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  border: none;
+  background: rgba(14, 165, 233, 0.2);
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.table-wrapper {
+  overflow: auto;
+  border-radius: 16px;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  max-height: 420px;
+}
+
+#dataTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+#dataTable thead {
+  position: sticky;
+  top: 0;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(6px);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+}
+
+#dataTable th,
+#dataTable td {
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+  text-align: left;
+}
+
+#dataTable tbody tr:hover {
+  background: rgba(14, 165, 233, 0.1);
+}
+
+.app-footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .file-input {
+    width: 100%;
+    justify-content: center;
+  }
+}
